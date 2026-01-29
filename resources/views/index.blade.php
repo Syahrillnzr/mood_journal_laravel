@@ -354,7 +354,7 @@
 
                     <!-- Footer bottom -->
                     <div class="mt-16 border-t border-gray-200 pt-8 text-center text-gray-400 font-light text-sm md:text-md">
-                        &copy; <span id="currentYear"></span> <a href="https://yourwebsite.com" class="hover:text-blue-500 transition">Mood Journal</a>. All rights reserved.
+                        &copy; 2026 - <span id="currentYear"></span>. All rights reserved. Developed by <a href="https://syahrillnzr.github.io/" target="_blank" class="hover:text-blue-500 transition">Syahrill Norizan</a>
                     </div>
 
                 </div>
