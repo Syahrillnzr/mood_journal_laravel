@@ -1,8 +1,8 @@
-<p align="center">
+<!-- <p align="center">
   <a href="https://yourwebsite.com" target="_blank">
     <img src="{{ asset('image/landing/footer-logo.png') }}" width="400" alt="Mood Journal Logo">
   </a>
-</p>
+</p> -->
 
 <p align="center">
   <a href="https://github.com/yourusername/mood-journal/actions">
