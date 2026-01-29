@@ -18,3 +18,13 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+
+Route::view('/', 'index')->name('home');
+Route::view('/about', 'about')->name('about');
+Route::view('/how-it-work', 'how')->name('how');
+Route::view('/features', 'features')->name('features');
+Route::view('/contact', 'contact')->name('contact');
+Route::view('/blog', 'blog')->name('blog');
+Route::view('/faq', 'faq')->name('faq');
+Route::view('/terms', 'tncpnp')->name('tncpnp');

@@ -7,7 +7,9 @@ export default defineConfig({
             input: [
                 'resources/css/app.css', 
                 'resources/css/mercy_tailwind.css',
-                'resources/js/app.js'
+                'resources/js/app.js',
+                // 'resources/css/pagedone.css',
+                // 'resources/js/pagedone.js',
             ],
             refresh: true,
         }),

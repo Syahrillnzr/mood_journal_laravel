@@ -19,6 +19,7 @@
         "vite": "^6.2.4"
     },
     "dependencies": {
-        "feather-icons": "^4.29.2"
+        "feather-icons": "^4.29.2",
+        "pagedone": "^1.2.2"
     }
 }

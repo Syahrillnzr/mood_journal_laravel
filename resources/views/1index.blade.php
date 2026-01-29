@@ -1,13 +1,83 @@
-@extends('layouts.landing')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('title', 'Home – Mood Journal')
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mercy - Mood Journal</title>
+        @vite(['resources/css/mercy_tailwind.css', 'resources/js/app.js'])
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" integrity="sha512-7x3zila4t2qNycrtZ31HO0NnJr8kg2VI67YLoRSyi9hGhRN66FHYWr7Axa9Y1J9tGYHVBPqIjSE1ogHrJTz51g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> 
+    </head>
 
-@section('content')
-        
+    <body class="font-body">
 
         <!-- home section -->
+        
             <section class="bg-white py-6">
                 <div class="container max-w-screen-xl mx-auto px-4">
+                    {{-- NAVIGATION BAR --}}
+                    <nav class="flex items-center justify-between flex-wrap" x-data="{ navbarOpen: false }">
+                        {{-- LEFT: LOGO --}}
+                        <div class="flex items-center space-x-4">
+                            <a href="/">
+                                <img src="{{ asset('image/landing/navbar-logo.png') }}" alt="Logo" class="h-10">
+                            </a>
+                        </div>
+
+                        {{-- TOGGLE BUTTON (MOBILE) --}}
+                        <div class="lg:hidden">
+                            <button @click="navbarOpen = !navbarOpen" class="text-blue-600 border border-blue-600 p-2 rounded">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 6h16M4 12h16M4 18h16"/>
+                                </svg>
+                            </button>
+                        </div>
+
+                        {{-- CENTER + RIGHT: NAV LINKS & AUTH --}}
+                        <div class="w-full lg:flex lg:items-center lg:justify-between lg:w-auto mt-4 lg:mt-0"
+                            :class="{ 'block': navbarOpen, 'hidden': !navbarOpen }">
+                            {{-- CENTER NAVIGATION LINKS --}}
+                            <ul class="flex flex-col lg:flex-row lg:items-center lg:space-x-8 xl:space-x-14 mb-4 lg:mb-0">
+                                <li><a href="#" class="font-semibold text-gray-900 hover:text-blue-600 transition">Home</a></li>
+                                <li><a href="#" class="font-semibold text-gray-900 hover:text-blue-600 transition">About</a></li>
+                                <li><a href="#" class="font-semibold text-gray-900 hover:text-blue-600 transition">How it works</a></li>
+                                <li><a href="#" class="font-semibold text-gray-900 hover:text-blue-600 transition">Features</a></li>
+                                <li><a href="#" class="font-semibold text-gray-900 hover:text-blue-600 transition">Contact Us</a></li>
+                            </ul>
+
+                            {{-- AUTH LINKS --}}
+                            <div class="flex flex-col lg:flex-row lg:items-center gap-3 ml-0 lg:ml-10">
+                                @if (Route::has('login'))
+                                    @auth
+                                        <a href="{{ url('/dashboard') }}"
+                                        class="px-5 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-800 hover:bg-gray-100 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700">
+                                            Dashboard
+                                        </a>
+                                    @else
+                                        <a href="{{ route('login') }}"
+                                        class="px-5 py-3 border border-transparent rounded-md text-sm font-medium text-blue-600 hover:border-blue-500">
+                                            Log in
+                                        </a>
+
+                                        @if (Route::has('register'))
+                                            <a href="{{ route('register') }}"
+                                            class="px-5 py-2 border border-blue-500 text-blue-500 rounded-md text-sm font-medium hover:bg-blue-500 hover:text-white transition">
+                                                Register
+                                            </a>
+                                        @endif
+                                    @endauth
+                                @endif
+                            </div>
+                        </div>
+                    </nav>
+
                     {{-- HERO SECTION --}}
                     <div class="flex flex-col lg:flex-row justify-between items-center space-y-12 lg:space-y-0 lg:space-x-20 mt-20">
                         {{-- TEXT --}}
@@ -32,6 +102,7 @@
                     </div>
                 </div>
             </section>
+
         <!-- home section //end -->
 
         <!-- feature section -->
@@ -224,4 +295,76 @@
         </section>
         <!-- join volunters section //end -->
 
-@endsection
+        <!-- footer section -->
+            <footer class="bg-gray-50 py-16 border-t border-gray-200">
+                <div class="container max-w-screen-xl mx-auto px-4">
+                    <div class="flex flex-col lg:flex-row lg:justify-between">
+
+                        <!-- Logo & Social -->
+                        <div class="space-y-7 mb-10 lg:mb-0">
+                            <div class="flex justify-center lg:justify-start">
+                                <img src="{{ asset('image/landing/footer-logo.png') }}" alt="Mood Journal Logo">
+                            </div>
+                            
+                            <p class="font-light text-gray-400 text-md md:text-lg text-center lg:text-left">
+                                Track your moods, reflect on your thoughts, and understand yourself better.
+                            </p>
+
+                            <div class="flex items-center justify-center lg:justify-start space-x-5">
+                                <a href="#" class="px-3 py-3 bg-gray-200 text-gray-700 rounded-full hover:bg-blue-500 hover:text-white transition ease-in-out duration-500">
+                                    <i data-feather="facebook"></i>
+                                </a>
+
+                                <a href="#" class="px-3 py-3 bg-gray-200 text-gray-700 rounded-full hover:bg-blue-500 hover:text-white transition ease-in-out duration-500">
+                                    <i data-feather="twitter"></i>
+                                </a>
+
+                                <a href="#" class="px-3 py-3 bg-gray-200 text-gray-700 rounded-full hover:bg-blue-500 hover:text-white transition ease-in-out duration-500">
+                                    <i data-feather="linkedin"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Quick links -->
+                        <div class="text-center lg:text-left space-y-7 mb-10 lg:mb-0">
+                            <h4 class="font-semibold text-gray-900 text-lg md:text-2xl">Quick links</h4>
+                            <a href="#" class="block font-light text-gray-400 text-sm md:text-lg hover:text-gray-800 transition ease-in-out duration-300">Home</a>
+                            <a href="#" class="block font-light text-gray-400 text-sm md:text-lg hover:text-gray-800 transition ease-in-out duration-300">About</a>
+                            <a href="#" class="block font-light text-gray-400 text-sm md:text-lg hover:text-gray-800 transition ease-in-out duration-300">Features</a>
+                            <a href="#" class="block font-light text-gray-400 text-sm md:text-lg hover:text-gray-800 transition ease-in-out duration-300">Blog</a>
+                        </div>
+
+                        <!-- Company -->
+                        <div class="text-center lg:text-left space-y-7 mb-10 lg:mb-0">
+                            <h4 class="font-semibold text-gray-900 text-lg md:text-2xl">Company</h4>
+                            <a href="#" class="block font-light text-gray-400 text-sm md:text-lg hover:text-gray-800 transition ease-in-out duration-300">About Us</a>
+                            <a href="#" class="block font-light text-gray-400 text-sm md:text-lg hover:text-gray-800 transition ease-in-out duration-300">Careers</a>
+                            <a href="#" class="block font-light text-gray-400 text-sm md:text-lg hover:text-gray-800 transition ease-in-out duration-300">Contact</a>
+                        </div>
+
+                        <!-- Legal -->
+                        <div class="text-center lg:text-left space-y-7 mb-10 lg:mb-0">
+                            <h4 class="font-semibold text-gray-900 text-lg md:text-2xl">Legal</h4>
+                            <a href="#" class="block font-light text-gray-400 text-sm md:text-lg hover:text-gray-800 transition ease-in-out duration-300">Privacy Policy</a>
+                            <a href="#" class="block font-light text-gray-400 text-sm md:text-lg hover:text-gray-800 transition ease-in-out duration-300">Terms & Conditions</a>
+                            <a href="#" class="block font-light text-gray-400 text-sm md:text-lg hover:text-gray-800 transition ease-in-out duration-300">FAQ</a>
+                        </div>
+
+                    </div>
+
+                    <!-- Footer bottom -->
+                    <div class="mt-16 border-t border-gray-200 pt-8 text-center text-gray-400 font-light text-sm md:text-md">
+                        &copy; 2026 - <span id="currentYear"></span> . All rights reserved. Design and Develop by <a href="https://syahrillnzr.github.io/" target="blank"  class="hover:text-blue-500 transition">Syahrill Norizan</a>
+                    </div>
+
+                </div>
+            </footer>
+
+        <script>
+            feather.replace()
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+        </script>
+
+        <script src="//unpkg.com/alpinejs" defer></script>
+    </body>
+</html>
