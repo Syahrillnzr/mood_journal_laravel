@@ -5,88 +5,63 @@
 @section('content')
         
 
-<!-- experience / benefit section -->
-    <section class="bg-white py-16">
+<!-- how it works section -->
 
-        <div class="container max-w-screen-xl mx-auto px-4">
-
-            <div class="flex flex-col lg:flex-row justify-between space-x-16">
-
-                <div class="flex justify-center lg:justify-start">
-                    <img src="{{ asset('image/landing/feature-img.png') }}" alt="Mood journal illustration">
+    <section class="py-24 relative">
+        <div class="w-full max-w-7xl px-4 md:px-5 lg:px-5 mx-auto">
+            <div class="w-full flex-col justify-start items-center lg:gap-12 gap-10 inline-flex">
+                <div class="w-full flex-col justify-start items-center gap-3 flex">
+                    <h2 class="w-full text-center text-gray-900 text-4xl font-bold font-manrope leading-normal">How It Works</h2>
+                    <p class="max-w-2xl text-center text-gray-400 text-base font-normal leading-relaxed">A detailed breakdown of processes and mechanisms behind a system or product, simplifying complex concepts for easy understanding.</p>
                 </div>
-
-                <div class="mt-16">
-
-                    <!-- Section title -->
-                    <h1 class="font-semibold text-gray-900 text-xl md:text-4xl mb-12">
-                        Discover and Understand Your Daily Emotions
-                    </h1>
-
-                    <!-- Grid of questions -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-
-                        <!-- 1. What is this? -->
-                        <div class="flex flex-col items-center text-center">
-                            <div class="w-20 py-6 flex justify-center bg-blue-200 bg-opacity-30 text-blue-700 rounded-xl mb-4">
-                                <i data-feather="book-open"></i>
-                            </div>
-                            <h3 class="font-semibold text-gray-900 text-xl md:text-2xl mb-4">
-                                What is this?
-                            </h3>
-                            <p class="font-light text-gray-500 text-md md:text-lg">
-                                A private space to log your moods and thoughts daily.
-                            </p>
+                <div class="w-full justify-start items-start gap-8 grid md:grid-cols-3 grid-cols-1">
+                    <div class="w-full flex-col justify-start items-start gap-2.5 inline-flex">
+                        <div class="w-full flex justify-between relative">
+                            <h4 class="text-gray-900 text-xl font-semibold leading-8">Input Collection</h4>
+                            <h3 class="text-gray-100 text-7xl font-extrabold font-manrope leading-[100px] absolute -top-9 right-0">1</h3>
                         </div>
-
-                        <!-- 2. Why should I care? -->
-                        <div class="flex flex-col items-center text-center">
-                            <div class="w-20 py-6 flex justify-center bg-green-200 bg-opacity-30 text-green-700 rounded-xl mb-4">
-                                <i data-feather="heart"></i>
-                            </div>
-                            <h3 class="font-semibold text-gray-900 text-xl md:text-2xl mb-4">
-                                Why should I care?
-                            </h3>
-                            <p class="font-light text-gray-500 text-md md:text-lg">
-                                Reflecting daily helps you understand your emotions and patterns over time.
-                            </p>
-                        </div>
-
-                        <!-- 3. Can I trust it? -->
-                        <div class="flex flex-col items-center text-center">
-                            <div class="w-20 py-6 flex justify-center bg-yellow-200 bg-opacity-30 text-yellow-700 rounded-xl mb-4">
-                                <i data-feather="lock"></i>
-                            </div>
-                            <h3 class="font-semibold text-gray-900 text-xl md:text-2xl mb-4">
-                                Can I trust it?
-                            </h3>
-                            <p class="font-light text-gray-500 text-md md:text-lg">
-                                Your journal is private and secure. Only you can view your entries.
-                            </p>
-                        </div>
-
-                        <!-- 4. What should I do next? -->
-                        <div class="flex flex-col items-center text-center">
-                            <div class="w-20 py-6 flex justify-center bg-red-200 bg-opacity-30 text-red-700 rounded-xl mb-4">
-                                <i data-feather="arrow-right-circle"></i>
-                            </div>
-                            <h3 class="font-semibold text-gray-900 text-xl md:text-2xl mb-4">
-                                What should I do next?
-                            </h3>
-                            <p class="font-light text-gray-500 text-md md:text-lg">
-                                Start your first entry today and take the first step to self-discovery.
-                            </p>
-                        </div>
-
+                        <p class="text-gray-400 text-base font-normal leading-relaxed">Gather all necessary data or materials required for the process. For example, in a 3D printing project, this involves preparing the digital design files and ensuring the printer has sufficient filament.</p>
                     </div>
-
+                    <div class="w-full flex-col justify-start items-start gap-2.5 inline-flex">
+                        <div class="w-full flex justify-between relative">
+                            <h4 class="text-gray-900 text-xl font-semibold leading-8">Processing</h4>
+                            <h3 class="text-gray-100 text-7xl font-extrabold font-manrope leading-[100px] absolute -top-9 right-0">2</h3>
+                        </div>
+                        <p class="text-gray-400 text-base font-normal leading-relaxed">Execute the core mechanism or operation. For 3D printing, this step includes the printer interpreting the digital model and methodically laying down layers of material to build the object.</p>
+                    </div>
+                    <div class="w-full flex-col justify-start items-start gap-2.5 inline-flex">
+                        <div class="w-full flex justify-between relative">
+                            <h4 class="text-gray-900 text-xl font-semibold leading-8">Output and Review</h4>
+                            <h3 class="text-gray-100 text-7xl font-extrabold font-manrope leading-[100px] absolute -top-9 right-0">3</h3>
+                        </div>
+                        <p class="text-gray-400 text-base font-normal leading-relaxed">Finalize the process and assess the results. In 3D printing, this means removing the finished object from the printer, inspecting it for quality, and performing any necessary post-processing steps like sanding or painting.</p>
+                    </div>
+                    <div class="w-full flex-col justify-start items-start gap-2.5 inline-flex">
+                        <div class="w-full flex justify-between relative">
+                            <h4 class="text-gray-900 text-xl font-semibold leading-8">Input Collection</h4>
+                            <h3 class="text-gray-100 text-7xl font-extrabold font-manrope leading-[100px] absolute -top-9 right-0">4</h3>
+                        </div>
+                        <p class="text-gray-400 text-base font-normal leading-relaxed">Gather all necessary data or materials required for the process. For example, in a 3D printing project, this involves preparing the digital design files and ensuring the printer has sufficient filament.</p>
+                    </div>
+                    <div class="w-full flex-col justify-start items-start gap-2.5 inline-flex">
+                        <div class="w-full flex justify-between relative">
+                            <h4 class="text-gray-900 text-xl font-semibold leading-8">Processing</h4>
+                            <h3 class="text-gray-100 text-7xl font-extrabold font-manrope leading-[100px] absolute -top-9 right-0">5</h3>
+                        </div>
+                        <p class="text-gray-400 text-base font-normal leading-relaxed">Execute the core mechanism or operation. For 3D printing, this step includes the printer interpreting the digital model and methodically laying down layers of material to build the object.</p>
+                    </div>
+                    <div class="w-full flex-col justify-start items-start gap-2.5 inline-flex">
+                        <div class="w-full flex justify-between relative">
+                            <h4 class="text-gray-900 text-xl font-semibold leading-8">Output and Review</h4>
+                            <h3 class="text-gray-100 text-7xl font-extrabold font-manrope leading-[100px] absolute -top-9 right-0">6</h3>
+                        </div>
+                        <p class="text-gray-400 text-base font-normal leading-relaxed">Finalize the process and assess the results. In 3D printing, this means removing the finished object from the printer, inspecting it for quality, and performing any necessary post-processing steps like sanding or painting.</p>
+                    </div>
                 </div>
-
             </div>
-
         </div>
-
     </section>
-<!-- experience / benefit section //end -->
+                                            
+<!-- how it work section //end -->
 
 @endsection

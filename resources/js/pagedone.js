@@ -433,4 +433,5 @@ function drawer() {
             document.querySelector("#" + getDrawerId + " [data-drawer-hide]").addEventListener("click", closeDrawer);
         })
     })
+
 }
