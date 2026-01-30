@@ -7,9 +7,27 @@ Route::get('/', function () {
     return view('index');
 });
 
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+
+//test dashboard
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('user.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/add', function () {
+    return view('user.add');
+})->middleware(['auth', 'verified'])->name('add');
+
+Route::get('/list', function () {
+    return view('user.list');
+})->middleware(['auth', 'verified'])->name('list');
+
+Route::get('/analysis', function () {
+    return view('user.analysis');
+})->middleware(['auth', 'verified'])->name('analysis');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
