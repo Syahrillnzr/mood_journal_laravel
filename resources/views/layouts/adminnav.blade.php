@@ -5,32 +5,32 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('admindash') }}">
+                    <a href="{{ route('admin.dashboard') }}">
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('add')" :active="request()->routeIs('add')">
-                        {{ __('User') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('list')" :active="request()->routeIs('list')">
-                        {{ __('Analytics') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('analysis')" :active="request()->routeIs('analysis')">
-                        {{ __('Settings') }}
-                    </x-nav-link>
-                </div>
+                <!-- Dashboard -->
+                <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
+                    {{ __('Dashboard') }}
+                </x-nav-link>
+
+                <!-- Users -->
+                <x-nav-link :href="route('admin.list')" :active="request()->routeIs('admin.list')">
+                    {{ __('User') }}
+                </x-nav-link>
+
+                <!-- Analytics -->
+                <x-nav-link :href="route('admin.analysis')" :active="request()->routeIs('admin.analysis')">
+                    {{ __('Analytics') }}
+                </x-nav-link>
+
+                <!-- Settings -->
+                <x-nav-link :href="route('admin.setting')" :active="request()->routeIs('admin.setting')">
+                    {{ __('Settings') }}
+                </x-nav-link>
+
             </div>
 
             <!-- Settings Dropdown -->
@@ -49,7 +49,7 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
+                        <x-dropdown-link :href="route('admin.profile.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
 
@@ -95,7 +95,7 @@
             </div>
 
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
+                <x-responsive-nav-link :href="route('admin.profile.edit')">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
 

@@ -1,80 +1,4 @@
-{{-- <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-profile-information-form')
-                </div>
-            </div>
-
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-password-form')
-                </div>
-            </div>
-
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.delete-user-form')
-                </div>
-            </div>
-        </div>
-    </div>
-</x-app-layout> --}}
-
-
-{{-- <x-admin-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-2xl text-gray-900 dark:text-gray-100 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-8">
-
-            <!-- Update Profile Information -->
-            <div class="bg-white dark:bg-gray-800 shadow rounded-lg p-6 sm:p-8">
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
-                    {{ __('Update Profile Information') }}
-                </h3>
-                <div class="max-w-xl">
-                    @include('profile.partials.update-profile-information-form')
-                </div>
-            </div>
-
-            <!-- Update Password -->
-            <div class="bg-white dark:bg-gray-800 shadow rounded-lg p-6 sm:p-8">
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
-                    {{ __('Update Password') }}
-                </h3>
-                <div class="max-w-xl">
-                    @include('profile.partials.update-password-form')
-                </div>
-            </div>
-
-            <!-- Delete Account -->
-            <div class="bg-white dark:bg-gray-800 shadow rounded-lg p-6 sm:p-8">
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
-                    {{ __('Delete Account') }}
-                </h3>
-                <div class="max-w-xl">
-                    @include('profile.partials.delete-user-form')
-                </div>
-            </div>
-
-        </div>
-    </div>
-</x-admin-layout> --}}
-
-
-<x-admin-layout>
+<x-user-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-2xl text-gray-900 dark:text-gray-100 leading-tight">
             {{ __('Profile') }}
@@ -101,13 +25,28 @@
                     <div class="space-y-4">
                         <div class="flex flex-col">
                             <label for="name" class="text-gray-600 dark:text-gray-400 text-base font-medium">Name</label>
-                            <input id="name" name="name" type="text" class="w-full px-5 py-3 rounded-lg border border-gray-200 shadow-sm focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100" :value="old('name', $user->name)" required autofocus autocomplete="name">
+                            <input 
+                                id="name" 
+                                name="name" 
+                                type="text" 
+                                class="w-full px-5 py-3 rounded-lg border border-gray-200 shadow-sm focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100" 
+                                value="{{ old('name', $user->name) }}" 
+                                required 
+                                autofocus 
+                                autocomplete="name">
                             <x-input-error class="mt-2" :messages="$errors->get('name')" />
                         </div>
 
                         <div class="flex flex-col">
                             <label for="email" class="text-gray-600 dark:text-gray-400 text-base font-medium">Email</label>
-                            <input id="email" name="email" type="email" class="w-full px-5 py-3 rounded-lg border border-gray-200 shadow-sm focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100" :value="old('email', $user->email)" required autocomplete="username">
+                            <input 
+                                id="email" 
+                                name="email" 
+                                type="email" 
+                                class="w-full px-5 py-3 rounded-lg border border-gray-200 shadow-sm focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100" 
+                                value="{{ old('email', $user->email) }}" 
+                                required 
+                                autocomplete="username">
                             <x-input-error class="mt-2" :messages="$errors->get('email')" />
 
                             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
@@ -210,4 +149,4 @@
 
         </div>
     </div>
-</x-admin-layout>
+</x-user-layout>

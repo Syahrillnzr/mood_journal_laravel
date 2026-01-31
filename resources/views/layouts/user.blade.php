@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 <body class="font-body bg-gray-50 min-h-screen">
-    @include('layouts.adminnav') {{-- optional --}}
+    @include('layouts.navigation') {{-- optional --}}
     
     @isset($header)
         <header class="bg-white dark:bg-gray-800 shadow">
@@ -34,7 +34,7 @@
         </header>
     @endisset
 
-    <main id="admin-dashboard" class="p-4">
+    <main id="user-dashboard" class="p-4">
         {{ $slot }}
     </main>
 
