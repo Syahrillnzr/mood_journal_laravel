@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Mood;
 use Illuminate\Http\Request;
 
 class AdminDashboardController extends Controller
@@ -13,6 +14,7 @@ class AdminDashboardController extends Controller
         return view('admin.admindash', [
             'totalUsers' => User::count(),
             'recentUsers' => User::latest()->take(5)->get(),
+            'recentMood' => Mood::latest()->take(2)->get(),
         ]);
     }
 }

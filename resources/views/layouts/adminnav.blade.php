@@ -17,8 +17,19 @@
                 </x-nav-link>
 
                 <!-- Users -->
-                <x-nav-link :href="route('admin.list')" :active="request()->routeIs('admin.list')">
-                    {{ __('User') }}
+                <x-nav-link
+                        :href="route('admin.lists.index')"
+                        :active="request()->routeIs('admin.lists.*')"
+                    >
+                        {{ __('Manage User') }}
+                </x-nav-link>
+
+                <!-- Manage Mood -->
+                <x-nav-link
+                        :href="route('admin.moods.index')"
+                        :active="request()->routeIs('admin.moods.*')"
+                    >
+                        {{ __('Manage Mood') }}
                 </x-nav-link>
 
                 <!-- Analytics -->

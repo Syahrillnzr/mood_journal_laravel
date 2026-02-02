@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\MoodController;
+use App\Http\Controllers\Admin\UserListController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -29,8 +31,9 @@ Route::middleware(['auth', 'role:0'])->group(function () {
 // Admin routes
 Route::middleware(['auth', 'role:1'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+    Route::resource('lists', UserListController::class);
+    Route::resource('moods', MoodController::class);
     Route::get('/setting', fn () => view('admin.setting'))->name('setting');
-    Route::get('/list', fn () => view('admin.list'))->name('list');
     Route::get('/analysis', fn () => view('admin.analysis'))->name('analysis');
 
     // Admin profile

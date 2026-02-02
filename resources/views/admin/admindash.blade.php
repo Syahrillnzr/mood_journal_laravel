@@ -1,9 +1,9 @@
 <x-admin-layout>
-    <x-slot name="header">
+    {{-- <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Dashboard') }}
         </h2>
-    </x-slot>
+    </x-slot> --}}
 
 <div class="py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -50,10 +50,27 @@
                             <img src="{{ $user->profile_photo_url ?? 'https://via.placeholder.com/40' }}" class="w-10 h-10 rounded-full">
                             <p class="text-gray-700">{{ $user->name }} ({{ $user->email }})</p>
                         </div>
-                        <span class="text-gray-500 text-sm">{{ $user->created_at->format('M d, Y') }}</span>
+                        <span class="text-gray-500 text-sm">{{ $user->created_at->format('d-M-Y') }}</span>
                     </div>
                 @empty
                     <p class="text-gray-500">No recent users found.</p>
+                @endforelse
+            </div>
+        </div>
+
+        <!-- Recent Mood Update -->
+        <div class="bg-white shadow rounded-lg p-6 mb-8">
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">Recent Mood Added</h3>
+            <div class="divide-y divide-gray-200">
+                @forelse($recentMood as $mood)
+                    <div class="py-4 flex justify-between items-center">
+                        <div class="flex items-center gap-4">
+                            <p class="text-gray-700">{{ $mood->name }} ({{ $mood->icon }})</p>
+                        </div>
+                        <span class="text-gray-500 text-sm">{{ $mood->created_at->format('d-M-Y') }}</span>
+                    </div>
+                @empty
+                    <p class="text-gray-500">No recent mood found.</p>
                 @endforelse
             </div>
         </div>
