@@ -32,6 +32,7 @@ Route::middleware(['auth', 'role:0'])->group(function () {
 Route::middleware(['auth', 'role:1'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::resource('lists', UserListController::class);
+    Route::patch('/admin/lists/{user}', [UserListController::class, 'update'])->name('admin.lists.update');
     Route::resource('moods', MoodController::class);
     Route::get('/setting', fn () => view('admin.setting'))->name('setting');
     Route::get('/analysis', fn () => view('admin.analysis'))->name('analysis');
