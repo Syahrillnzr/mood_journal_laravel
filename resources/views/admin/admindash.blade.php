@@ -47,7 +47,7 @@
                 @forelse($recentUsers as $user)
                     <div class="py-4 flex justify-between items-center">
                         <div class="flex items-center gap-4">
-                            <img src="{{ $user->profile_photo_url ?? 'https://via.placeholder.com/40' }}" class="w-10 h-10 rounded-full">
+                            {{-- <img src="{{ $user->profile_photo_url ?? 'https://via.placeholder.com/40' }}" class="w-10 h-10 rounded-full"> --}}
                             <p class="text-gray-700">{{ $user->name }} ({{ $user->email }})</p>
                         </div>
                         <span class="text-gray-500 text-sm">{{ $user->created_at->format('d-M-Y') }}</span>

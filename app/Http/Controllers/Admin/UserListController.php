@@ -18,9 +18,10 @@ class UserListController extends Controller
         return view('admin.lists.index', compact('users', 'admins','blogs'));
     }
 
-    public function create()
+        public function create()
     {
-        return view('admin.lists.create');
+        
+        return view('admin.lists.create'); 
     }
 
     public function store(Request $request)
@@ -30,6 +31,9 @@ class UserListController extends Controller
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6|confirmed',
             'role' => 'required|in:0,1,2',
+            'status' => 'required|in:0,1',
+
+
         ]);
 
         $user = User::create([
@@ -37,7 +41,7 @@ class UserListController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'role' => (int) $request->role,
-            'is_active' => 1,
+            'status' => (int) $request->status,
         ]);
 
         $roleName = match ($user->role) {
@@ -46,7 +50,7 @@ class UserListController extends Controller
             default => 'User',
         };
 
-        return redirect()->back()->with('success', "$roleName added successfully");
+        return redirect()->route('admin.lists.index')->with('success', 'User added!');
     }
 
     public function edit(User $list)
@@ -54,19 +58,28 @@ class UserListController extends Controller
         return view('admin.lists.edit', compact('list'));
     }
 
-    public function update(Request $request, User $user)
+    public function update(Request $request, User $list)
     {
-        $request->validate([
+        // Validate that the role and status are within the correct ranges
+        $validated = $request->validate([
             'status' => 'required|in:0,1',
+            'role'   => 'required|in:0,1,2', 
         ]);
 
-        $user->update([
-            'status' => $request->status,
-        ]);
+        // Update the user
+        $list->update($validated);
 
-        return redirect()->back()->with('success', 'Status updated successfully');
+        // Redirect back to the index table
+        return redirect()->route('admin.lists.index')
+                        ->with('success', "User '{$list->name}' updated successfully!");
     }
 
+
+        public function show(User $list)
+    {
+        // For now, just redirect back to the index or edit page
+        return redirect()->route('admin.lists.edit', $list->id);
+    }
 
     public function destroy(User $list)
     {

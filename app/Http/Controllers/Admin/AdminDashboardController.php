@@ -15,6 +15,10 @@ class AdminDashboardController extends Controller
             'totalUsers' => User::count(),
             'recentUsers' => User::latest()->take(5)->get(),
             'recentMood' => Mood::latest()->take(2)->get(),
+            'activeUsers' => User::where('status', 1)->count(),
+            'newSignups' => User::whereMonth('created_at', now()->month)
+                            ->whereYear('created_at', now()->year)
+                            ->count(),
         ]);
     }
 }

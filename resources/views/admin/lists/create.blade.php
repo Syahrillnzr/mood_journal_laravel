@@ -1,75 +1,67 @@
 <x-admin-layout>
-<div class="max-w-xl mx-auto py-10">
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white dark:bg-gray-800 w-full max-w-md mx-auto rounded-lg shadow-lg p-6">
+                <h2 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-100">
+                    Add New
+                </h2>
 
-    <h1 class="text-xl font-bold mb-6">Add Mood</h1>
+                <form method="POST" action="{{ route('admin.lists.store') }}">
+                    @csrf
+                    <div>
+                        <label class="block text-sm font-medium dark:text-gray-200">Name</label>
+                        <input type="text" name="name" value="{{ old('name') }}" required
+                            class="w-full border rounded p-2 dark:bg-gray-700 dark:text-white">
+                    </div>
 
-        <form method="POST" action="{{ route('admin.moods.store') }}" class="space-y-6">
-            @csrf
+                    <div>
+                        <label class="block text-sm font-medium dark:text-gray-200">Email</label>
+                        <input type="email" name="email" value="{{ old('email') }}" required
+                            class="w-full border rounded p-2 dark:bg-gray-700 dark:text-white">
+                    </div>
 
-            <!-- Mood Name -->
-            <div>
-                <label class="block text-sm font-medium mb-1">Mood Name</label>
-                <input id="name" name="name" placeholder="Happy"
-                    class="w-full border p-2 rounded"
-                    required>
+                    <div class="mt-4">
+                        <label class="block text-sm font-medium dark:text-gray-200">Password</label>
+                        <input type="password" name="password" required
+                            class="w-full border rounded p-2 dark:bg-gray-700 dark:text-white">
+                    </div>
+
+                    <div class="mt-4">
+                        <label class="block text-sm font-medium dark:text-gray-200">Confirm Password</label>
+                        <input type="password" name="password_confirmation" required
+                            class="w-full border rounded p-2 dark:bg-gray-700 dark:text-white">
+                    </div>
+
+                    <div class="mt-4">
+                        <label class="block text-sm font-medium dark:text-gray-200">Role</label>
+                        <select name="role" class="w-full border rounded p-2 dark:bg-gray-700 dark:text-white">
+                            <option value="0">User</option>
+                            <option value="1">Admin</option>
+                            <option value="2">Blog Manager</option>
+                        </select>
+                    </div>
+
+                    <div class="mt-4">
+                        <label class="block text-sm font-medium dark:text-gray-200">Status</label>
+                        <select name="status" class="w-full border rounded p-2 dark:bg-gray-700 dark:text-white">
+                            <option value="1">Active</option>
+                            <option value="0">Deactive</option>
+                        </select>
+                    </div>
+
+                    <div class="flex justify-end gap-2 pt-4">
+                        <a href="{{ route('admin.lists.index') }}" 
+                        class="px-4 py-2 bg-gray-300 dark:bg-gray-600 rounded text-black dark:text-white text-center">
+                            Cancel
+                        </a>
+
+                        <button type="submit"
+                            class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700">
+                            Create User
+                        </button>
+                    </div>
+                </form>
             </div>
-
-            <!-- Icon -->
-            <div>
-                <label class="block text-sm font-medium mb-1">Emoji</label>
-                <input id="icon" name="icon" placeholder="😊"
-                    class="w-full border p-2 rounded"
-                    required>
-            </div>
-
-            <!-- Color -->
-            <div>
-                <label class="block text-sm font-medium mb-1">Tailwind Color</label>
-                <input id="color" name="color" placeholder="bg-yellow-400"
-                    class="w-full border p-2 rounded"
-                    required>
-            </div>
-
-            <!-- 🔴 LIVE PREVIEW -->
-            <div class="border rounded-lg p-4 bg-gray-50">
-                <p class="text-sm text-gray-500 mb-2">Preview</p>
-
-                <div id="preview"
-                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-200 transition">
-                    <span id="preview-icon">😊</span>
-                    <span id="preview-name">Mood</span>
-                </div>
-            </div>
-
-            <!-- Submit -->
-            <button class="px-4 py-2 bg-indigo-600 text-white rounded">
-                Save
-            </button>
-        </form>
-
-        <!-- Preview Script -->
-        <script>
-            const nameInput = document.getElementById('name');
-            const iconInput = document.getElementById('icon');
-            const colorInput = document.getElementById('color');
-
-            const preview = document.getElementById('preview');
-            const previewName = document.getElementById('preview-name');
-            const previewIcon = document.getElementById('preview-icon');
-
-            function updatePreview() {
-                previewName.textContent = nameInput.value || 'Mood';
-                previewIcon.textContent = iconInput.value || '😊';
-
-                preview.className =
-                    `inline-flex items-center gap-2 px-4 py-2 rounded-full transition ${colorInput.value || 'bg-gray-200'}`;
-            }
-
-            nameInput.addEventListener('input', updatePreview);
-            iconInput.addEventListener('input', updatePreview);
-            colorInput.addEventListener('input', updatePreview);
-        </script>
-
-
-</div>
+        </div>
+    </div>
 </x-admin-layout>
