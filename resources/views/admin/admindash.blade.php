@@ -81,16 +81,55 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div class="bg-gray-100 rounded-lg p-4">
                     <p class="text-gray-500 mb-2">User Growth (Last 30 Days)</p>
-                    <div class="h-32 bg-white rounded-lg shadow flex items-center justify-center text-gray-400">[Line Chart Placeholder]</div>
+                    <div class="bg-white p-6 rounded-lg shadow">
+                        <h3 class="mb-4 font-semibold">User Status</h3>
+                        <canvas id="growthChart"></canvas>
+                    </div>
                 </div>
                 <div class="bg-gray-100 rounded-lg p-4">
                     <p class="text-gray-500 mb-2">Active vs Inactive Users</p>
-                    <div class="h-32 bg-white rounded-lg shadow flex items-center justify-center text-gray-400">[Pie Chart Placeholder]</div>
+                        <div class="bg-white p-6 rounded-lg shadow">
+                            <h3 class="mb-4 font-semibold">User Status</h3>
+                            <canvas id="statusChart"></canvas>
+                        </div>
                 </div>
             </div>
         </div>
 
     </div>
 </div>
+
+        @push('scripts')
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script>
+
+                const statusData = @json($statusCounts);
+
+                // Status Bar Chart
+                new Chart(document.getElementById('statusChart'), {
+                    type: 'bar',
+                    data: {
+                        labels: Object.keys(statusData),
+                        datasets: [{
+                            data: Object.values(statusData),
+                        }]
+                    }
+                });
+
+                const growthChart = new Chart(document.getElementById('growthChart'), {
+                    type: 'line',
+                    data: {
+                        labels: @json($growthLabels),
+                        datasets: [{
+                            label: 'New Users',
+                            data: @json($growthData),
+                            tension: 0.3,
+                            fill: true
+                        }]
+                    }
+                });
+                
+            </script>
+        @endpush
 
 </x-admin-layout>

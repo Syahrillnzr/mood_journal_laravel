@@ -45,10 +45,12 @@
 
     <main id="admin-dashboard" class="p-4">
         {{ $slot }}
+        @stack('scripts')
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" defer></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+   
 
 
 </body>
