@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-user-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-2xl text-gray-900 dark:text-gray-100 leading-tight">
             {{ __('Profile') }}
@@ -149,4 +149,4 @@
 
         </div>
     </div>
-</x-admin-layout>
+</x-user-layout>

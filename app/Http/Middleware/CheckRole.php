@@ -17,10 +17,15 @@ class CheckRole
             return redirect()->route('login');
         }
 
-        if ((int) $user->role !== (int) $role) {
-            // redirect user to their own dashboard
-            return redirect()->route('user.dashboard');
+if ((int) $user->role !== (int) $role) {
+        // redirect user based on their actual role
+        switch ((int) $user->role) {
+            case 1: // Admin
+                return redirect()->route('admin.dashboard');
+            default: // Normal user
+                return redirect()->route('user.dashboard'); // or some user landing page
         }
+    }
 
         return $next($request);
     }
