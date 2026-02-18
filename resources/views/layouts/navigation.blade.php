@@ -17,12 +17,12 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('add')" :active="request()->routeIs('add')">
+                    <x-nav-link :href="route('mood-entries.create')" :active="request()->routeIs('mood-entries.create')">
                         {{ __('Add Entry') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('list')" :active="request()->routeIs('list')">
+                    <x-nav-link :href="route('entries-list.index')" :active="request()->routeIs('entries-list.index')">
                         {{ __('List') }}
                     </x-nav-link>
                 </div>

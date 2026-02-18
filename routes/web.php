@@ -6,7 +6,10 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\MoodController;
 use App\Http\Controllers\Admin\UserListController;
 use App\Http\Controllers\Admin\AnalyticsController;
+use App\Http\Controllers\User\MoodEntryController;
 use App\Http\Controllers\User\UserDashboardController;
+use App\Http\Controllers\User\MoodEntryListController;
+use App\Http\Controllers\User\AnalysisController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -20,9 +23,9 @@ Route::get('/', function () {
 // User routes
 Route::middleware(['auth', 'role:0'])->group(function () {
     Route::get('/dashboard', [UserDashboardController::class, 'index'])->name('dashboard');
-    Route::get('/add', fn () => view('user.add'))->name('add');
-    Route::get('/list', fn () => view('user.list'))->name('list');
-    Route::get('/analysis', fn () => view('user.analysis'))->name('analysis');
+    Route::resource('mood-entries', MoodEntryController::class);
+    Route::resource('entries-list', MoodEntryListController::class)->only(['index', 'destroy']);
+    Route::get('/analysis', [AnalysisController::class, 'index'])->name('analysis');
 
     // User profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

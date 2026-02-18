@@ -36,6 +36,7 @@
 
     <main id="user-dashboard" class="p-4">
         {{ $slot }}
+        @stack('scripts')
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" defer></script>
