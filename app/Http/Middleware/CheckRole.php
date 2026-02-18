@@ -13,19 +13,26 @@ class CheckRole
     {
         $user = Auth::user();
 
-        if (! $user) {
+        if (!$user) {
             return redirect()->route('login');
         }
 
-if ((int) $user->role !== (int) $role) {
-        // redirect user based on their actual role
-        switch ((int) $user->role) {
-            case 1: // Admin
-                return redirect()->route('admin.dashboard');
-            default: // Normal user
-                return redirect()->route('user.dashboard'); // or some user landing page
+        // dd([
+        //     'user_role' => $user->role,
+        //     'user_role_type' => gettype($user->role),
+        //     'required_role' => $role,
+        //     'required_role_type' => gettype($role),
+        //     'match' => $user->role === (int) $role,
+        // ]);
+            
+        if ($user->role !== (int) $role) {  // $role from route is still a string so keep one cast
+            switch ($user->role) {
+                case 1:
+                    return redirect()->route('admin.dashboard');
+                default:
+                    return redirect()->route('user.dashboard');
+            }
         }
-    }
 
         return $next($request);
     }

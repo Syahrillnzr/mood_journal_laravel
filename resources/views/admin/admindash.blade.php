@@ -11,7 +11,16 @@
         <!-- Greeting / Overview -->
         <div class="bg-white dark:bg-gray-800 shadow rounded-lg p-6 mb-8 flex flex-col md:flex-row md:justify-between md:items-center">
             <div>
-                <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100">Good Morning, {{ Auth::user()->name }}!</h2>
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100">
+                    @php
+                        $hour = now()->hour;
+                        if ($hour < 12) $greeting = 'Good Morning';
+                        elseif ($hour < 18) $greeting = 'Good Afternoon';
+                        elseif ($hour < 21) $greeting = 'Good Evening';
+                        else $greeting = 'Good Night';
+                    @endphp
+                    {{ $greeting }}, {{ Auth::user()->name }}!
+                </h2>
                 <p class="text-gray-600 dark:text-gray-400 mt-1">Here’s an overview of your platform.</p>
             </div>
             <div class="mt-4 md:mt-0 flex items-center gap-4">

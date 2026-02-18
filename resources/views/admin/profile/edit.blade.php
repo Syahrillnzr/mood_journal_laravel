@@ -1,4 +1,4 @@
-<x-user-layout>
+<x-admin-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-2xl text-gray-900 dark:text-gray-100 leading-tight">
             {{ __('Profile') }}
@@ -18,7 +18,7 @@
                     @csrf
                 </form>
 
-                <form method="post" action="{{ route('profile.update') }}" class="space-y-6">
+                <form method="post" action="{{ route('admin.profile.update') }}" class="space-y-6">
                     @csrf
                     @method('patch')
 
@@ -124,7 +124,7 @@
                 </x-danger-button>
 
                 <x-modal name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
-                    <form method="post" action="{{ route('profile.destroy') }}" class="space-y-4 p-6">
+                    <form method="post" action="{{ route('admin.profile.destroy') }}" class="space-y-4 p-6">
                         @csrf
                         @method('delete')
 
@@ -149,4 +149,4 @@
 
         </div>
     </div>
-</x-user-layout>
+</x-admin-layout>

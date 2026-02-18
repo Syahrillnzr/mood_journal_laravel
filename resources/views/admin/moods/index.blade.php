@@ -10,7 +10,7 @@
             </a>
         </div>
 
-        <table class="w-full bg-white rounded shadow">
+        <table id="moodsTable" class="w-full">
             <thead class="bg-gray-100">
                 <tr>
                     <th class="p-3 text-left">Name</th>
@@ -27,27 +27,41 @@
                     <td class="p-3 text-center">{{ $mood->icon }}</td>
                     <td class="p-3 text-center">{{ $mood->color }}</td>
                     <td class="p-3 text-center">
-                        {{ $mood->is_active ? 'Active' : 'Disabled' }}
+                        {{ $mood->is_active ? 'Active' : 'Disactive' }}
                     </td>
-                    <td class="p-3 flex gap-2 justify-center">
-                        <a href="{{ route('admin.moods.edit', $mood) }}"
-                        class="px-3 py-1 bg-blue-500 text-white rounded">
-                            Edit
-                        </a>
-
-                        <form method="POST"
-                            action="{{ route('admin.moods.destroy', $mood) }}">
-                            @csrf
-                            @method('DELETE')
-                            <button class="px-3 py-1 bg-red-500 text-white rounded">
-                                Delete
-                            </button>
-                        </form>
+                    <td class="p-3 text-center">
+                        <div class="flex gap-2 justify-center">
+                            <a href="{{ route('admin.moods.edit', $mood) }}"
+                                class="px-3 py-1 bg-blue-500 text-white rounded">
+                                Edit
+                            </a>
+                            <form method="POST"
+                                action="{{ route('admin.moods.destroy', $mood) }}">
+                                @csrf
+                                @method('DELETE')
+                                <button class="px-3 py-1 bg-red-500 text-white rounded">
+                                    Delete
+                                </button>
+                            </form>
+                        </div>
                     </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
+
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#moodsTable').DataTable({
+                pageLength: 10,
+                columnDefs: [
+                    { orderable: false, targets: [1, 2, 4] } // disable sort on Icon, Color, Action
+                ]
+            });
+        });
+    </script>
 
     </div>
 </x-admin-layout>

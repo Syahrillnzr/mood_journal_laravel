@@ -1,14 +1,7 @@
 <x-admin-layout>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in! This is setting") }}
-                </div>
-            </div>
-        </div>
-        <section class="py-24 relative">
+        {{-- <section class="py-24 relative">
             <div class="w-full max-w-7xl px-4 md:px-5 lg:px-5 mx-auto">
                 <div class="w-full flex-col justify-start items-start lg:gap-14 md:gap-10 gap-8 inline-flex">
                     <div class="w-full flex-col justify-center items-center gap-4 flex">
@@ -116,7 +109,18 @@
                     </button>
                 </div>
             </div>
-        </section>
+        </section> --}}
+        <br>
+        <div class="flex flex-col items-center justify-center min-h-[60vh] text-center">
+            <div class="text-6xl mb-4">🍳</div>
+            <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-2">
+                Something is Cooking...
+            </h2>
+            <p class="text-gray-500 dark:text-gray-400">
+                This page is still in the works. Might finish, might not. 🤷
+            </p>
+        </div>
+
     </div>
 </x-admin-layout>
 
