@@ -12,9 +12,10 @@ use App\Http\Controllers\User\MoodEntryListController;
 use App\Http\Controllers\User\AnalysisController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('index');
-});
+
+// Route::get('/', function () {
+//     return view('index');
+// });
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
@@ -23,7 +24,7 @@ Route::get('/', function () {
 // User routes
 Route::middleware(['auth', 'role:0'])->group(function () {
     Route::get('/dashboard', [UserDashboardController::class, 'index'])->name('dashboard');
-    Route::resource('mood-entries', MoodEntryController::class);
+    Route::resource('mood-entries', MoodEntryController::class)->names('web.mood-entries');
     Route::resource('entries-list', MoodEntryListController::class)->only(['index', 'destroy']);
     Route::get('/analysis', [AnalysisController::class, 'index'])->name('analysis');
 
@@ -59,3 +60,5 @@ Route::view('/contact', 'contact')->name('contact');
 Route::view('/blog', 'blog')->name('blog');
 Route::view('/faq', 'faq')->name('faq');
 Route::view('/terms', 'tncpnp')->name('tncpnp');
+
+
