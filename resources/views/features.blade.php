@@ -5,7 +5,7 @@
 @section('content')
         
 
-<!-- experience / benefit section -->
+<!-- Features section -->
 
 <section class="py-24">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -77,6 +77,95 @@
             </div>
 </section>
 
-<!-- experience / benefit section //end -->
+<!-- Features section //end -->
+
+<!-- App Download Section -->
+
+        <section class="py-24 bg-gradient-to-r from-indigo-600 to-indigo-700">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <!-- Left Content -->
+                    <div class="text-white">
+                        <h2 class="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+                            Get the Mood Journal App
+                        </h2>
+                        <p class="text-lg text-indigo-100 mb-4 leading-relaxed">
+                            Journal anywhere, anytime. Take your emotional wellness journey with you with our mobile app.
+                        </p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-3 text-indigo-100">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.5 15L11.0858 11.4142C11.7525 10.7475 12.0858 10.4142 12.0858 10C12.0858 9.58579 11.7525 9.25245 11.0858 8.58579L7.5 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                                <span>Access all 6 steps on your phone</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-indigo-100">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.5 15L11.0858 11.4142C11.7525 10.7475 12.0858 10.4142 12.0858 10C12.0858 9.58579 11.7525 9.25245 11.0858 8.58579L7.5 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                                <span>Get daily reminders to journal</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-indigo-100">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.5 15L11.0858 11.4142C11.7525 10.7475 12.0858 10.4142 12.0858 10C12.0858 9.58579 11.7525 9.25245 11.0858 8.58579L7.5 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                                <span>Track mood patterns over time</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-indigo-100">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.5 15L11.0858 11.4142C11.7525 10.7475 12.0858 10.4142 12.0858 10C12.0858 9.58579 11.7525 9.25245 11.0858 8.58579L7.5 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                                <span>Offline access to all your entries</span>
+                            </li>
+                        </ul>
+                        
+                        <!-- App Store Buttons -->
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <!-- App Store Button -->
+                            <a href="#" class="inline-flex items-center justify-center bg-black text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-900 transition-all group">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="white" class="mr-3">
+                                    <path d="M18.71 19.71L22.41 9H2L5.3 19H18.71ZM12 3C11.45 3 11 3.45 11 4V13H13V4C13 3.45 12.55 3 12 3Z"/>
+                                </svg>
+                                <div class="text-left">
+                                    <div class="text-xs opacity-75">Download on the</div>
+                                    <div class="text-base font-bold">App Store</div>
+                                </div>
+                            </a>
+
+                            <!-- Google Play Button -->
+                            <a href="#" class="inline-flex items-center justify-center bg-black text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-900 transition-all group">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="white" class="mr-3">
+                                    <path d="M3 13.5v8.9C3 23.5 4.5 25 6.6 25h10.8c2.1 0 3.6-1.5 3.6-3.6v-8.9L12 19 3 13.5zm8.45-9.65L6.6 10.4c-1.35 1.35-1.35 3.55 0 4.9l4.85 7.5 10.8-8.45c.45-.35.7-.95.7-1.6 0-.65-.25-1.25-.7-1.6L12.8 2.25c-.45-.35-1.05-.35-1.35 0z"/>
+                                </svg>
+                                <div class="text-left">
+                                    <div class="text-xs opacity-75">Get it on</div>
+                                    <div class="text-base font-bold">Google Play</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Visual - 3 Phone Screenshots -->
+                    <div class="flex justify-center items-center relative h-96">
+                        <!-- Back Left Phone -->
+                        <div class="absolute left-0 top-12 w-48 h-80 bg-gradient-to-b from-gray-900 to-gray-800 rounded-3xl shadow-xl border-8 border-gray-800 transform -rotate-12 z-0 overflow-hidden">
+                            <img src="screenshot-1.png" alt="Mood Journal Step 1" class="w-full h-full object-cover rounded-2xl">
+                        </div>
+
+                        <!-- Back Right Phone -->
+                        <div class="absolute right-0 top-12 w-48 h-80 bg-gradient-to-b from-gray-900 to-gray-800 rounded-3xl shadow-xl border-8 border-gray-800 transform rotate-12 z-0 overflow-hidden">
+                            <img src="screenshot-3.png" alt="Mood Journal Step 4" class="w-full h-full object-cover rounded-2xl">
+                        </div>
+
+                        <!-- Front Center Phone -->
+                        <div class="relative w-56 h-96 bg-gradient-to-b from-gray-900 to-gray-800 rounded-3xl shadow-2xl border-8 border-gray-800 z-10 overflow-hidden">
+                            <img src="screenshot-2.png" alt="Mood Journal Main" class="w-full h-full object-cover rounded-2xl">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- App Download Section END -->
 
 @endsection
