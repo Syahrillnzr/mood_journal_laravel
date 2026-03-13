@@ -13,9 +13,9 @@ export default defineConfig({
                 'resources/css/pagedone.css',
                 'resources/js/pagedone.js',
 
-                // // Admin dashboard assets
-                'resources/css/dashboard.css',
-                'resources/js/dashboard.js',
+                // // // Admin dashboard assets
+                // 'resources/css/dashboard.css',
+                // 'resources/js/dashboard.js',
             ],
             refresh: true,
         }),

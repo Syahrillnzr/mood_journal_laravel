@@ -51,7 +51,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" defer></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
    
+        {{-- <script>
+            const toggle = document.getElementById('theme-toggle');
+            const sun = document.getElementById('icon-sun');
+            const moon = document.getElementById('icon-moon');
 
+            // Load saved preference
+            if (localStorage.getItem('theme') === 'dark') {
+                document.documentElement.classList.add('dark');
+                sun.classList.remove('hidden');
+                moon.classList.add('hidden');
+            }
+
+            toggle.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+                const isDark = document.documentElement.classList.contains('dark');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                sun.classList.toggle('hidden', !isDark);
+                moon.classList.toggle('hidden', isDark);
+            });
+        </script> --}}
 
 </body>
 

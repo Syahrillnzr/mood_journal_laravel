@@ -56,7 +56,7 @@
 
             <!-- Footer bottom -->
             <div class="mt-16 border-t border-gray-200 pt-8 text-center text-gray-400 font-light text-sm md:text-md">
-                &copy; 2026 - <span id="currentYear"></span> . All rights reserved. Design and Develop by <a href="https://syahrillnzr.github.io/" target="blank"  class="hover:text-blue-500 transition">Syahrill Norizan</a>
+                &copy; 2026 - <span id="currentYear"></span> . All rights reserved. Design , Develop and Vibe Code by <a href="https://syahrillnzr.github.io/" target="blank"  class="hover:text-blue-500 transition">Syahrill Norizan</a>
             </div>
 
         </div>
